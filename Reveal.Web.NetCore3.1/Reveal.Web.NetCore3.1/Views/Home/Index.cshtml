@@ -2,7 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center" id="revealView" style="height:800px">
+
 </div>
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        var revealView = new $.ig.RevealView("#revealView");
+
+    </script>
+}
