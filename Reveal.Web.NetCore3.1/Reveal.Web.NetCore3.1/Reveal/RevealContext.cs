@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Reveal.Sdk;
 
@@ -10,7 +11,19 @@ namespace Reveal.Web.NetCore3._1.Reveal
     {
         public override Task<Dashboard> GetDashboardAsync(string dashboardId)
         {
-            throw new NotImplementedException();
+            var assembly = Assembly.GetExecutingAssembly();
+            var allResourcesNames = assembly.GetManifestResourceNames();
+
+            var targetResourceName = allResourcesNames.FirstOrDefault(name => name.Contains(dashboardId));
+            if (targetResourceName != null)
+            {
+                var dashboardStream = assembly.GetManifestResourceStream(targetResourceName);
+                return Task.FromResult(new Dashboard(dashboardStream));
+            }
+            else
+            {
+                throw new ArgumentException($"No {dashboardId} found!");
+            }
         }
 
         public override Task SaveDashboardAsync(string userId, string dashboardId, Dashboard dashboard)

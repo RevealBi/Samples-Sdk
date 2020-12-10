@@ -6,6 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dashboards\Campaigns.rdash" />
+    <None Remove="Dashboards\Manufacturing.rdash" />
+    <None Remove="Dashboards\Marketing.rdash" />
+    <None Remove="Dashboards\Sales.rdash" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Dashboards\Campaigns.rdash" />
+    <EmbeddedResource Include="Dashboards\Manufacturing.rdash" />
+    <EmbeddedResource Include="Dashboards\Marketing.rdash" />
+    <EmbeddedResource Include="Dashboards\Sales.rdash" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
     <PackageReference Include="Reveal.Sdk.Web.AspNetCore.Trial" Version="1.0.1637" />
   </ItemGroup>
