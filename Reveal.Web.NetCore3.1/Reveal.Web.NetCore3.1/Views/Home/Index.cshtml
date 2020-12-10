@@ -9,11 +9,23 @@
 @section Scripts
     {
     <script type="text/javascript">
-        var dashboardId = "Sales";
-        $.ig.RevealUtility.loadDashboard(dashboardId, function (dashboard) {
-            var revealView = new $.ig.RevealView("#revealView");
-            revealView.dashboard = dashboard;
-        }, function (error) { console.log(error); })
+
+        var loadDashboard = function ()  {
+            var dashboardId = "Sales";
+            $.ig.RevealUtility.loadDashboard(dashboardId, function (dashboard) {
+                var revealView = new $.ig.RevealView("#revealView");
+                revealView.dashboard = dashboard;
+            }, function (error) { console.log(error)})
+        }
+
+        window.RobotoFontsLoader.Load().then(() =>
+        {
+            loadDashboard();
+        }).catch((e) =>
+        {
+            console.warn("Roboto fonts failed loading: " + e)
+            loadDashboard();
+        });
 
     </script>
 }
