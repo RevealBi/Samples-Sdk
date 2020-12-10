@@ -9,7 +9,11 @@
 @section Scripts
     {
     <script type="text/javascript">
-        var revealView = new $.ig.RevealView("#revealView");
+        var dashboardId = "Marketing";
+        $.ig.RevealUtility.loadDashboard(dashboardId, function (dashboard) {
+            var revealView = new $.ig.RevealView("#revealView");
+            revealView.dashboard = dashboard;
+        }, function (error) { console.log(error); })
 
     </script>
 }
