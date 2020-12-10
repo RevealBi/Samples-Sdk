@@ -13,9 +13,12 @@ namespace Reveal.Web.NetCore3._1
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private string _webRootPath;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _webRootPath = env.WebRootPath;
         }
 
         public IConfiguration Configuration { get; }
