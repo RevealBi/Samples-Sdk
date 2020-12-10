@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reveal.Web.NetCore3.1", "Reveal.Web.NetCore3.1\Reveal.Web.NetCore3.1.csproj", "{762098BC-B597-465E-BB45-2276740C2C3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{762098BC-B597-465E-BB45-2276740C2C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{762098BC-B597-465E-BB45-2276740C2C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{762098BC-B597-465E-BB45-2276740C2C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{762098BC-B597-465E-BB45-2276740C2C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F75B4405-2861-47F0-BE17-A52457F2A7A6}
+	EndGlobalSection
+EndGlobal
