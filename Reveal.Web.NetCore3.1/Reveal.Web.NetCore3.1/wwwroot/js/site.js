@@ -33,4 +33,3 @@ class RobotoFontsLoader {
 }
 
 window.RobotoFontsLoader = new RobotoFontsLoader();
-window.RobotoFontsLoader.Load();
