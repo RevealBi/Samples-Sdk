@@ -43,6 +43,8 @@ namespace Reveal.Web.NetCore3._1
             services.AddRevealServices(embedSettings, new RevealContext());
 
             services.AddMvc().AddReveal().AddNewtonsoftJson();
+
+            services.AddSingleton<Infragistics.ReportPlus.DataLayer.IDataProvider>(new Infragistics.ReportPlus.DataLayer.Providers.MsSql.AzureSqlProvider());
         }
 
         protected virtual string GetLocalFileStoragePath(string webRootPath)
