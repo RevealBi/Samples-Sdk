@@ -14,10 +14,10 @@ namespace Reveal.Web.NetCore3._1.Reveal
             // Here you could inspect the actual datasource Reveal need to connect to and provide the appropriate credentials
 
             IRVDataSourceCredential datasouceCredential;
-            var sqlServerDs = dataSource as RVSqlServerDataSource;
-            if (sqlServerDs != null && sqlServerDs.Host == "specific host")
+            var sqlServerDs = dataSource as RVAzureSqlDataSource;
+            if (sqlServerDs != null)
             {
-                datasouceCredential = new RVUsernamePasswordDataSourceCredential("<username>", "<password>", "<domain>");
+                datasouceCredential = new RVUsernamePasswordDataSourceCredential("<username>", "<password>");
             }
             else
             {

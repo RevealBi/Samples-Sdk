@@ -1,16 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Reveal.Sdk;
 using Reveal.Web.NetCore3._1.Reveal;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Reveal.Web.NetCore3._1
 {
@@ -40,11 +35,9 @@ namespace Reveal.Web.NetCore3._1
             embedSettings.DataCachePath = cacheFilePath;
             embedSettings.CachePath = cacheFilePath;
 
-            services.AddRevealServices(embedSettings, new RevealContext());
+            services.AddRevealServices(embedSettings, new RevealContext(), new RevealUserContext());
 
             services.AddMvc().AddReveal().AddNewtonsoftJson();
-
-            services.AddSingleton<Infragistics.ReportPlus.DataLayer.IDataProvider>(new Infragistics.ReportPlus.DataLayer.Providers.MsSql.AzureSqlProvider());
         }
 
         protected virtual string GetLocalFileStoragePath(string webRootPath)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Reveal.Web.NetCore3._1.Reveal
 {
+
     public class ChangeDataSourceProvider : IRVDataSourceProvider
     {
         public Task<RVDataSourceItem> ChangeDashboardFilterDataSourceItemAsync(string userId, string dashboardId, RVDashboardFilter filter, RVDataSourceItem dataSourceItem)
@@ -18,6 +19,7 @@ namespace Reveal.Web.NetCore3._1.Reveal
             var azureDSI = dataSourceItem as RVAzureSqlDataSourceItem;
 
             azureDSI.ProcedureParameters["@p1"] = 1;
+
             return Task.FromResult(dataSourceItem);
         }
     }
