@@ -18,7 +18,7 @@ namespace Reveal.Web.NetCore3._1.Reveal
         {
             var azureDSI = dataSourceItem as RVAzureSqlDataSourceItem;
 
-            azureDSI.ProcedureParameters["@p1"] = 1;
+            //azureDSI.ProcedureParameters["@p1"] = 1;
 
             return Task.FromResult(dataSourceItem);
         }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
-    <PackageReference Include="Reveal.Sdk.Web.AspNetCore.Trial" Version="1.0.1644" />
+    <PackageReference Include="Reveal.Sdk.Web.AspNetCore.Trial" Version="1.0.1712" />
   </ItemGroup>
 
   <ItemGroup>

@@ -21,11 +21,30 @@
         window.RobotoFontsLoader.Load().then(() =>
         {
             loadDashboard();
+            getData("/Json/GetData", (data) => { window.alert(data) }, (e) => { window.alert(e) });
         }).catch((e) =>
         {
             console.warn("Roboto fonts failed loading: " + e)
             loadDashboard();
         });
+
+        function getData(controller, successCallback, errorCallback) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        var result = this.response;
+                        successCallback(result);
+                    }
+                    else {
+                        errorCallback(this.status);
+                    }
+                }
+            };
+            xhttp.open("GET", window.location.origin + controller, true);
+
+            xhttp.send();
+        }
 
     </script>
 }

@@ -24,8 +24,6 @@ namespace Reveal.Web.NetCore3._1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddNewtonsoftJson();
-
             var embedSettings = new RevealEmbedSettings();
             embedSettings.LocalFileStoragePath = GetLocalFileStoragePath(_webRootPath);
 
@@ -37,7 +35,22 @@ namespace Reveal.Web.NetCore3._1
 
             services.AddRevealServices(embedSettings, new RevealContext(), new RevealUserContext());
 
-            services.AddMvc().AddReveal().AddNewtonsoftJson();
+            var mvcBuilder = services.AddMvc().AddReveal();
+
+            // Using Newtonsoft.Json serialization not changing the keys' casing
+            mvcBuilder.AddNewtonsoftJson(o =>
+            {
+                o.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver()
+                {
+                    NamingStrategy = null
+                };
+            });
+
+            // Uncomment this to use System.Text.Json default serialization without changing the keys' casing and remove the above call switching to Newtonsoft.
+            //mvcBuilder.AddJsonOptions(o =>
+            //    {
+            //        o.JsonSerializerOptions.PropertyNamingPolicy = null;
+            //    });
         }
 
         protected virtual string GetLocalFileStoragePath(string webRootPath)
