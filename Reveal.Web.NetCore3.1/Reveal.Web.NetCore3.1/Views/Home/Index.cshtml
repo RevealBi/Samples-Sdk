@@ -10,16 +10,21 @@
     {
     <script type="text/javascript">
 
-        var loadDashboard = function ()  {
+        var loadDashboard = function () {
             var dashboardId = "Sales";
             $.ig.RevealUtility.loadDashboard(dashboardId, function (dashboard) {
                 var revealView = new $.ig.RevealView("#revealView");
                 revealView.dashboard = dashboard;
-            }, function (error) { console.log(error)})
+
+                revealView.showExportImage = false;
+                revealView.showExportToExcel = false;
+                revealView.showExportToPDF = false;
+                revealView.showExportToPowerpoint = false;
+
+            }, function (error) { console.log(error) })
         }
 
-        window.RobotoFontsLoader.Load().then(() =>
-        {
+        window.RobotoFontsLoader.Load().then(() => {
             loadDashboard();
             getData("/Json/GetData", (data) => { window.alert(data) }, (e) => { window.alert(e) });
         }).catch((e) =>
