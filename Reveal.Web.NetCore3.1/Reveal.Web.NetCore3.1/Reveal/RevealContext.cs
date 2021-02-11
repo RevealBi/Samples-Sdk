@@ -11,6 +11,7 @@ namespace Reveal.Web.NetCore3._1.Reveal
     {
         IRVAuthenticationProvider _authProvider = new AuthenticationProvider();
         IRVDataSourceProvider _changeDataSourceProvider = new ChangeDataSourceProvider();
+
         public override Task<Dashboard> GetDashboardAsync(string dashboardId)
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -35,6 +36,8 @@ namespace Reveal.Web.NetCore3._1.Reveal
 
         public override IRVAuthenticationProvider AuthenticationProvider => _authProvider;
 
+
         public override IRVDataSourceProvider DataSourceProvider => _changeDataSourceProvider;
+
     }
 }

@@ -6,17 +6,17 @@ using Microsoft.Extensions.Hosting;
 using Reveal.Sdk;
 using Reveal.Web.NetCore3._1.Reveal;
 using System.IO;
+using System.Reflection;
 
 namespace Reveal.Web.NetCore3._1
 {
     public class Startup
     {
-        private string _webRootPath;
 
-        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _webRootPath = env.WebRootPath;
         }
 
         public IConfiguration Configuration { get; }
@@ -25,7 +25,7 @@ namespace Reveal.Web.NetCore3._1
         public void ConfigureServices(IServiceCollection services)
         {
             var embedSettings = new RevealEmbedSettings();
-            embedSettings.LocalFileStoragePath = GetLocalFileStoragePath(_webRootPath);
+            embedSettings.LocalFileStoragePath = GetLocalFileStoragePath();
 
             var cacheFilePath = Configuration.GetSection("Caching")?["CacheFilePath"] ?? @"C:\Temp\Reveal\Web\Cache";
             Directory.CreateDirectory(cacheFilePath);
@@ -54,9 +54,15 @@ namespace Reveal.Web.NetCore3._1
             services.AddMvc().AddReveal();
         }
 
-        protected virtual string GetLocalFileStoragePath(string webRootPath)
+        protected virtual string GetLocalFileStoragePath()
         {
-            return Path.Combine(webRootPath, "LocalDatasourceFiles");
+
+            var currentAssemblyLocation= Assembly.GetExecutingAssembly().Location;
+            var index = currentAssemblyLocation.LastIndexOf(Path.DirectorySeparatorChar);
+            var folder = currentAssemblyLocation.Substring(0, index);
+            var localDataSourcesPath = Path.Combine(folder, "LocalDataSourceFiles");
+
+            return localDataSourcesPath;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,6 +11,32 @@
     <None Remove="Dashboards\Manufacturing.rdash" />
     <None Remove="Dashboards\Marketing.rdash" />
     <None Remove="Dashboards\Sales.rdash" />
+    <None Remove="Dashboards\SalesBranded.rdash" />
+    <None Remove="LocalDatasourceFiles\CustomerLogos\igniteui.png" />
+    <None Remove="LocalDatasourceFiles\CustomerLogos\infragistics.jpg" />
+    <None Remove="LocalDatasourceFiles\CustomerLogos\reveal.png" />
+    <None Remove="LocalDatasourceFiles\Samples.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="LocalDatasourceFiles\CustomerLogos\igniteui.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LocalDatasourceFiles\CustomerLogos\infragistics.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LocalDatasourceFiles\CustomerLogos\reveal.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LocalDatasourceFiles\Samples.xlsx">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +44,7 @@
     <EmbeddedResource Include="Dashboards\Manufacturing.rdash" />
     <EmbeddedResource Include="Dashboards\Marketing.rdash" />
     <EmbeddedResource Include="Dashboards\Sales.rdash" />
+    <EmbeddedResource Include="Dashboards\SalesBranded.rdash" />
   </ItemGroup>
 
   <ItemGroup>
