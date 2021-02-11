@@ -27,7 +27,6 @@ namespace Reveal.Web.NetCore3._1
             var embedSettings = new RevealEmbedSettings();
             embedSettings.LocalFileStoragePath = GetLocalFileStoragePath(_webRootPath);
 
-            //You could configure the default disk locations used by RevealView to store cached data by uncommenting the following lines:
             var cacheFilePath = Configuration.GetSection("Caching")?["CacheFilePath"] ?? @"C:\Temp\Reveal\Web\Cache";
             Directory.CreateDirectory(cacheFilePath);
             embedSettings.DataCachePath = cacheFilePath;
@@ -51,6 +50,8 @@ namespace Reveal.Web.NetCore3._1
             //    {
             //        o.JsonSerializerOptions.PropertyNamingPolicy = null;
             //    });
+
+            services.AddMvc().AddReveal();
         }
 
         protected virtual string GetLocalFileStoragePath(string webRootPath)
